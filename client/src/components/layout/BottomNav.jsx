@@ -16,7 +16,7 @@ const BottomNav = () => {
     ];
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 p-4 z-50 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-50 pointer-events-none">
             <div className="glass backdrop-blur-xl rounded-2xl p-2 flex justify-around items-center max-w-md mx-auto pointer-events-auto border-t border-white/10 shadow-2xl">
                 {navItems.map((item) => {
                     const isActive = path === item.path;

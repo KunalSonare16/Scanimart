@@ -72,7 +72,7 @@ const Cart = () => {
             </div>
 
             {/* Checkout Bar */}
-            <GlassCard className="fixed bottom-[80px] left-4 right-4 p-4 border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] z-40 max-w-md mx-auto !bg-[#0f111a]/90 backdrop-blur-xl">
+            <GlassCard className="absolute bottom-[90px] left-4 right-4 p-4 border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] z-40 max-w-md mx-auto !bg-[#0f111a]/90 backdrop-blur-xl">
                 <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-400">Total</span>
                     <span className="text-2xl font-bold font-mono text-primary">{formatCurrency(total)}</span>
