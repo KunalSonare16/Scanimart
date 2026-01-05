@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Scanimart | Future of Retail</title>
+</head>
+
+<body>
+  <div id="error-display"
+    style="position:fixed;top:0;left:0;width:100%;background:red;color:white;z-index:9999;display:none;padding:20px;">
+  </div>
+  <script>
+    window.onerror = function (message, source, lineno, colno, error) {
+      var display = document.getElementById('error-display');
+      display.style.display = 'block';
+      display.innerHTML += '<p>' + message + ' at ' + source + ':' + lineno + '</p>';
+    };
+    window.onunhandledrejection = function (event) {
+      var display = document.getElementById('error-display');
+      display.style.display = 'block';
+      display.innerHTML += '<p>Unhandled Rejection: ' + event.reason + '</p>';
+    };
+  </script>
+  <div id="app"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

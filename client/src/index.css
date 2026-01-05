@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #030305;
+  --color-surface: #0A0A12;
+  --color-primary: #00F0FF;
+  --color-secondary: #BD00FF;
+  --color-accent: #00FF94;
+  --color-danger: #FF0055;
+  --color-muted: #8888AA;
+
+  --animate-scan: scan 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes scan {
+
+    0%,
+    100% {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translateY(100%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --neon-glow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+
+  body {
+    @apply bg-background text-white font-sans overflow-x-hidden;
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(189, 0, 255, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 25%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  }
+
+  .glass-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 5px var(--color-primary), inset 0 0 5px var(--color-primary);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scan Animation */
+.scan-overlay {
+  background: linear-gradient(to bottom, transparent, var(--color-primary), transparent);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  animation: scan 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  box-shadow: 0 0 15px var(--color-primary);
+}
